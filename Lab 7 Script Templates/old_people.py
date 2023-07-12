@@ -8,6 +8,7 @@ Usage:
 """
 import os
 from create_db import db_path, script_dir
+import sqlite3
 
 def main():
     old_people_list = get_old_people()
@@ -23,6 +24,13 @@ def get_old_people():
         list: (name, age) of old people 
     """
     # TODO: Create function body
+    from pprint import pprint
+    con = sqlite3.connect('social_network.db')
+    cur = con.cursor()
+    cur.execute('SELECT * FROM people')
+    all_people = cur.fetchall()
+    con.commit()
+    con.close()
     
     # Hint: See example code in lab instructions entitled "Getting People Data from the Database"
     return
