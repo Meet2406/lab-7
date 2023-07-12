@@ -66,12 +66,12 @@ updated_at
 )
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
 """
-    new_person = ('Bob Loblaw',
-   'bob.loblaw@whatever.net',
-   '123 Fake St.',
-   'Fakesville',
-   'Fake Edward Island',
-   'Enjoys making funny sounds when talking.',
+    new_person = ('Meet Patel',
+   'MeetPatel240@gmail.com',
+   '806 Fake St.',
+   'Bakerville',
+   'Prince Edward Island',
+   'Always in happy mood.',
     46,
     datetime.now(),
     datetime.now())
@@ -79,6 +79,17 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
     con.commit()
     con.close()
     return
+
+    
+from faker import Faker
+
+fake = Faker("en_CA")
+
+for _ in range(10):
+    province = fake.administrative_unit()
+    population = fake.random_int(min=900000, max=100000000)
+    print(f'The population of {province} is {population}.')
+  
 
 if __name__ == '__main__':
    main()

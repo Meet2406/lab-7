@@ -23,6 +23,7 @@ def get_old_people():
         list: (name, age) of old people 
     """
     # TODO: Create function body
+    
     # Hint: See example code in lab instructions entitled "Getting People Data from the Database"
     return
 
